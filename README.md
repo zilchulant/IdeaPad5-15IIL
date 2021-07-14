@@ -5,6 +5,8 @@ My attempt to get MacOS with OpenCore running on Lenovo IdeaPad 5-15IIL05 (IceLa
   - [1.2 ToDo](#12-todo)
 - [3. Hardware](#3-hardware)
   - [3.1 Physical Devices](#31-physical-devices)
+  - [3.2 Connection of devices:](#32-connection-of-devices)
+  - [3.3 USB Ports:](#33-usb-ports)
 - [4. OpenCore](#4-opencore)
 
 <br>
@@ -58,6 +60,43 @@ Current status of OpenCore:
 # 3. Hardware
 
 ## 3.1 Physical Devices
+
+|Part|Brand|Model|Notes|
+|:--|:--|:--|:--|
+|**Notebook**|Lenovo|**IdeaPad5-15IIL05**|might internationally be known as S550|
+|CPU|Intel|i7-1065G7||
+|RAM||16GB|soldered|
+|iGPU|Intel|Iris Pro Plus G7|*ID: 0x8A52*|
+|dGPU|Nvidia|MX350|disabled via SSDT|
+|SSD|WD|PC SN730, 512GB|Windows, Ubuntu, MacOS|
+|Audio|Realtek|ALC257|alcid= 11 or other? |
+|Microphon|Intel|Smart Sound Microphonearray|recognised, but does not work|
+|Trackpad||Microsoft HID Precission Touchpad|MSFT0001|
+|Wifi|Intel|AX201 (2x2)| |
+|Bluetooth|Intel|Version 5.1||
+|HDMI||Version 1.4b|||
+
+<br>
+
+## 3.2 Connection of devices:
+
+ACPI Paths
+
+|Device|Path|Note|
+|:--|:--|:--|
+|Keyboard|\_SB.PCIO.LPCB.PS2K|PS2|
+|Trackpad|\_SB.PCIO.I2C1.TPD0||
+|iGPU|\_SB.PCIO.GFX0||
+|GPU|\_sb.PCIO.RP05.PXSX||
+|400 Chipset|\_SB.PCIO.SAT0||
+|Camera|\_SB.PCIO.XHC.RHUB.HS05.CAMA|USB Connected|
+|USB-Controller|\_SB.UBTC|Might be CPU integrated TB|
+|USB 3.1 Controller|\_SB.PCIO.XHC||
+|Intel SMBus|\_SB.PCIO.SBUS|34A3|
+
+<br>
+
+## 3.3 USB Ports:
 
 
 
